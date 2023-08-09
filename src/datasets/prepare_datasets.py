@@ -8,8 +8,6 @@ from tqdm import tqdm
 from PIL import Image
 import h5py
 from scipy.io import loadmat
-from torch.utils.data import Dataset
-from torch.utils.data.dataset import ConcatDataset, Dataset
 
 # https://github.com/VainF/nyuv2-python-toolkit/blob/master/splits.mat
 NYUV2_SPLITS_FILEPATH = os.path.join(os.path.dirname(__file__),
@@ -247,30 +245,3 @@ class Preparation:
             from_axes = 'c' + from_axes
 
         return np.transpose(input_img, [from_axes.find(a) for a in to_axes])
-
-
-
-class NYUv2(Dataset):
-
-    def __init__(self):
-        super().__init__()
-        
-    def __getitem__(self, index):
-        return super().__getitem__(index)
-    
-    def __add__(self, other: Dataset) -> ConcatDataset:
-        return super().__add__(other)
-    
-    def __len__(self):
-        pass
-
-class SUNRGBD(Dataset):
-
-    def __getitem__(self, index):
-        return super().__getitem__(index)
-    
-    def __add__(self, other: Dataset) -> ConcatDataset:
-        return super().__add__(other)
-    
-    def __len__(self):
-        pass

@@ -161,3 +161,4 @@ cython_debug/
 
 datasets/nyuv2/
 trained_models/*/
+tmp/
